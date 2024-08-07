@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/lib/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <title>Loja Virtual :: {% block subtitulo %}{% endblock %}</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    {%- set cliente = request.state.cliente -%}
+    {% include "includes/header.html" %}
+    <main class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                {% include "includes/message.html" %}
+            </div>            
+            <div class="col-12">
+                {% block topo %}{% endblock %}
+            </div>
+        </div>
+        {% block conteudo %}{% endblock %}
+    </main>
+    {% include "includes/footer.html" %}
+    <script src="/static/lib/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

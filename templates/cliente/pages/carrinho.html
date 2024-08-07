@@ -1,0 +1,66 @@
+{% extends "pages/base.html" %}
+{% block subtitulo %}Carrinho de Compras{% endblock %}
+{% block conteudo %}
+<h1 class="display-5"><b>Carrinho de Compras</b></h1>
+<hr>
+{% if not itens: %}
+<h3>Seu carrinho de compras está vazio.</h3>
+{% else: %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Nome</th>
+            <th>R$ Unit.</th>
+            <th>Qtde.</th>
+            <th>R$ Item</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in itens %}
+        <tr>
+            <td>
+                <a href="/produto/{{i.id_produto}}">
+                    <img src="/static/img/produtos/{{'{:04d}'.format(i.id_produto)}}.jpg" style="height: 48px;"
+                        class="rounded img-thumbnail">
+                </a>
+            </td>
+            <td><a href="/produto/{{i.id_produto}}">{{ i.nome_produto }}</a></td>
+            <td>{{i.valor_produto}}</td>
+            <td>
+                <form action="/cliente/post_reduzir_item" method="post" class="d-inline-block">
+                    <input type="hidden" name="id_produto" value="{{i.id_produto}}">
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-dash"></i>
+                    </button>
+                </form>
+                <span class="mx-2">{{i.quantidade}}</span>
+                <form action="/cliente/post_aumentar_item" method="post" class="d-inline-block">
+                    <input type="hidden" name="id_produto" value="{{i.id_produto}}">
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </form>
+            </td>
+            <td>{{i.valor_item}}</td>
+            <td>
+                <button class="btn btn-danger btn-sm">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr class="lead">
+            <td colspan="4" class="text-end">Valor Total do Pedido:</td>
+            <td><b>R$ 23.992,00</b></td>
+            <td>
+                <a class="btn btn-danger btn-lg" href="/cliente/confirmacaopedido">Finalizar Pedido</a>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+{% endif %}
+{% endblock %}

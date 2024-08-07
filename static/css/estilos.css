@@ -1,0 +1,41 @@
+.page-link {
+    color: var(--bs-danger);
+    background-color: var(--bs-white);
+    border: 1px solid var(--bs-danger);
+}
+
+.page-link:hover {
+    color: var(--bs-dark);
+    background-color: var(--bs-light);
+    border: 1px solid var(--bs-danger);
+}
+
+.page-link.active,
+.page-link.active:hover {
+    background-color: var(--bs-danger);
+    border-color: var(--bs-danger);
+    color: var(--bs-white);
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.texto-3-linhas {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.texto-1-linha {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

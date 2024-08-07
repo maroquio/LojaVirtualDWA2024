@@ -1,0 +1,9 @@
+{% extends "pages/base.html" %}
+{% block subtitulo %}Resultados da Busca por '{{ termo_busca }}'{% endblock %}
+{% block conteudo %}
+<h1 class="display-5"><b>Busca de Produtos</b></h1>
+<hr>
+{% include "includes/paging.html" %}
+{% include "includes/grid_produtos.html" %}
+{% include "includes/paging.html" %}
+{% endblock %}

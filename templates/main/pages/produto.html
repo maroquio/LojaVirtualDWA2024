@@ -1,0 +1,53 @@
+{% extends "pages/base.html" %}
+{% block subtitulo %}Detalhes do Produto {{produto.nome}}{% endblock %}
+{% block conteudo %}
+<h1 class="display-5"><b>{{produto.nome}}</b></h1>
+<hr>
+<div class="row">
+    <div class="col-4">
+        <img src="/static/img/produtos/{{'{:04d}'.format(produto.id)}}.jpg" class="img-thumbnail">
+    </div>
+    <div class="col-8">
+        <p class="lead texto-1-linha">{{produto.descricao}}</p>
+        <ul class="nav nav-tabs mb-2">
+            <li class="nav-item">
+                <a class="nav-link text-dark active" href="#" data-bs-toggle="tab"
+                    data-bs-target="#divDescricao">Descrição</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="#" data-bs-toggle="tab" data-bs-target="#divEspecs">Especificações
+                    Técnicas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="#" data-bs-toggle="tab" data-bs-target="#divGarantia">Garantia</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="tab-content">
+            <div class="tab-pane active" id="divDescricao">
+                {{produto.descricao}}
+            </div>
+            <div class="tab-pane" id="divEspecs">
+                {{produto.descricao}}
+            </div>
+            <div class="tab-pane" id="divGarantia">
+                Garantia legal de 90 dias contra defeitos de fabricação e garantia adicional de 1 ano oferecida pelo
+                fabricante.
+            </div>
+        </div>
+        <p></p>
+        <p class="lead mb-0">
+            <span class="small">De <s>R$ {{"{:,.2f}".format(produto.preco*1.1)}}</s></span>
+        </p>
+        <p class="lead">
+            Por <b>R$ {{"{:,.2f}".format(produto.preco)}}</b>
+        </p>
+        <form method="post" action="/cliente/post_adicionar_carrinho">
+            <input type="hidden" name="id_produto" value="{{produto.id}}">
+            <button class="btn btn-danger btn-lg">
+                <i class="bi bi-cart-plus"></i>
+                Adicionar ao Carrinho
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

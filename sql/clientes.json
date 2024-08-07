@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "nome": "João Silva",
+        "cpf": "123.456.789-01",
+        "data_nascimento": "1980-01-01",
+        "endereco": "Rua A, 123",
+        "telefone": "(11) 99999-8888",
+        "email": "joao@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 2,
+        "nome": "Maria Oliveira",
+        "cpf": "234.567.890-12",
+        "data_nascimento": "1981-02-02",
+        "endereco": "Rua B, 456",
+        "telefone": "(21) 98888-7777",
+        "email": "maria@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 3,
+        "nome": "Carlos Pereira",
+        "cpf": "345.678.901-23",
+        "data_nascimento": "1982-03-03",
+        "endereco": "Rua C, 789",
+        "telefone": "(31) 97777-6666",
+        "email": "carlos@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 4,
+        "nome": "Ana Souza",
+        "cpf": "456.789.012-34",
+        "data_nascimento": "1983-04-04",
+        "endereco": "Rua D, 101",
+        "telefone": "(41) 96666-5555",
+        "email": "ana@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 5,
+        "nome": "Paulo Santos",
+        "cpf": "567.890.123-45",
+        "data_nascimento": "1984-05-05",
+        "endereco": "Rua E, 202",
+        "telefone": "(51) 95555-4444",
+        "email": "paulo@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 6,
+        "nome": "Fernanda Lima",
+        "cpf": "678.901.234-56",
+        "data_nascimento": "1985-06-06",
+        "endereco": "Rua F, 303",
+        "telefone": "(61) 94444-3333",
+        "email": "fernanda@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 7,
+        "nome": "Ricardo Costa",
+        "cpf": "789.012.345-67",
+        "data_nascimento": "1986-07-07",
+        "endereco": "Rua G, 404",
+        "telefone": "(71) 93333-2222",
+        "email": "ricardo@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 8,
+        "nome": "Juliana Alves",
+        "cpf": "890.123.456-78",
+        "data_nascimento": "1987-08-08",
+        "endereco": "Rua H, 505",
+        "telefone": "(81) 92222-1111",
+        "email": "juliana@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 9,
+        "nome": "Marcos Silva",
+        "cpf": "901.234.567-89",
+        "data_nascimento": "1988-09-09",
+        "endereco": "Rua I, 606",
+        "telefone": "(91) 91111-0000",
+        "email": "marcos@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    },
+    {
+        "id": 10,
+        "nome": "Patrícia Moreira",
+        "cpf": "012.345.678-90",
+        "data_nascimento": "1989-10-10",
+        "endereco": "Rua J, 707",
+        "telefone": "(92) 90000-9999",
+        "email": "patricia@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "token": ""
+    }
+]

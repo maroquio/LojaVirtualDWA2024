@@ -1,0 +1,48 @@
+# Gerais
+
+- Adicionado de método em ProdutoRepo para copiar imagens dos produtos
+- Adicionado template para mensagem no estilo "info"
+- Adicionado método para mostrar mensagem do tipo "info"
+- Removidos recursos de admin do cliente, pois a administração ficará em outro projeto
+
+# Execução com PythonDebug
+
+- Elimina código de execução no final de main.py ou execução por terminal
+- Requer arquivo launch.json na pasta /.vscode
+- Executar com Ctrl+F5
+
+# Reorganização da Pasta de Templates
+
+- Criadas pastas para cada rota raiz
+- Criadas pastas para arquivos parciais e para páginas
+- Páginas completas e parciais movidas para pastas específicas
+- Criada pasta shared, compartilhada entre todas as rotas
+- Adicionado arquivo /util/templates.py, que possui função obter_jinja_templates, capaz de mapear a pasta shared e outra pasta à escolha do programador
+- Rotas e páginas modificadas para corrigir os caminhos dos templates
+
+# Autenticação/Autorização
+
+- Middleware de autenticação
+    : Elimina dependência de checagem de autenticação em todas as rotas
+- Dependência global de autorização
+    : Requer função checar_permissao em auth.py
+    : Deve ser adicionada na criação do app
+    : Função checar_autorizacao removida das rotas do cliente e de auth.py
+
+# Área do Cliente
+
+- Adicionadas dataclasses Pedido e ItemPedido
+- Adicionados comandos SQL para pedidos e itens de pedido
+
+# Publicação
+
+- Adicionados arquivos de conteinerização
+    : Definir um nome para o conteiner (_.cachoeiro.es)
+    : Configurar porta adequada para projeto (8071, 8072...)
+
+# A Fazer
+
+- Repositórios para pedidos e itens de pedidos
+- Página do carrinho
+- Adicionar ao carrinho
+- Página de pedidos

@@ -1,0 +1,27 @@
+{% extends "pages/base.html" %}
+{% block subtitulo %}Alteração de Senha{% endblock %}
+{% block conteudo %}
+<h1 class="display-5"><b>Alteração de Senha</b></h1>
+<hr>
+<form class="row json-form" method="post" action="/cliente/post_senha">
+    <div class="col-12 col-lg-6">
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="senha" name="senha" placeholder=" ">
+            <label for="senha">Senha</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="novaSenha" name="nova_senha" placeholder=" ">
+            <label for="novaSenha">Nova Senha</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="confNovaSenha" name="confirmacao_nova_senha" placeholder=" ">
+            <label for="confSenha">Confirmação da Nova Senha</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-danger btn-lg">Alterar Senha</button>
+        </div>
+    </div>
+</form>
+<script src="/static/js/formToJson.js"></script>
+<script src="/static/js/inputMasks.js"></script>
+{% endblock %}

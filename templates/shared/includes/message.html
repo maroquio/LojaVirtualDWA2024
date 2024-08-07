@@ -1,0 +1,25 @@
+{% if not message_success: %}
+{%- set message_success = request.cookies.get("message_success") -%}
+{% endif %}
+{% if not message_info: %}
+{%- set message_info = request.cookies.get("message_info") -%}
+{% endif %}
+{% if not message_warning: %}
+{%- set message_warning = request.cookies.get("message_warning") -%}
+{% endif %}
+{% if not message_danger: %}
+{%- set message_danger = request.cookies.get("message_danger") -%}
+{% endif %}
+
+{%- if message_success: -%}
+{%- include "includes/message_success.html" with context -%}
+{%- endif -%}
+{%- if message_info: -%}
+{%- include "includes/message_info.html" with context -%}
+{%- endif -%}
+{%- if message_warning: -%}
+{%- include "includes/message_warning.html" with context -%}
+{%- endif -%}
+{%- if message_danger: -%}
+{%- include "includes/message_danger.html" with context -%}
+{%- endif -%}

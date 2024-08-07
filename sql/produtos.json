@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "nome": "Fone de Ouvido Air Pods Pro 2ª Geração",
+        "preco": 2990,
+        "descricao": "Cancelamento Ativo de Ruído até 2x melhor. Modo Ambiente para ouvir o mundo à sua volta. Áudio Adaptativo, novo recurso que ajusta a redução de ruídos de forma dinâmica a diferentes situações. Áudio Espacial para uma imersão única e surpreendente. E até seis horas de bateria com uma única recarga. O chip H2 da Apple é a potência por trás do desempenho de áudio imponente dos AirPods Pro. Um amplificador e um driver exclusivo trabalham em sintonia para oferecer graves potentes e agudos intensos em excelente definição, deixando os sons mais impressionantes do que nunca. Um microfone voltado para dentro usa algoritmos de aprimoramento para reconhecer e articular sua voz, deixando o som absolutamente natural nas chamadas de áudio e vídeo. Os AirPods Pro com chip H2 agora vêm com Áudio Adaptativo1, que prioriza automaticamente os sons que merecem sua atenção em diferentes situações. Ao combinar o Cancelamento Ativo de Ruído com o modo Ambiente sempre que você precisa, o Áudio Adaptativo garante a melhor configuração de áudio onde quer que seja. Até parece mágica.",
+        "estoque": 25
+    },
+    {
+        "id": 2,
+        "nome": "Relógio Apple Watch 9ª Geração",
+        "preco": 9490,
+        "descricao": "Nosso chip mais poderoso em um Apple Watch até hoje. Uma maneira mágica de usar o relógio sem tocar na tela. O dobro de brilho. E, pela primeira vez, em combinações de caixa e pulseira neutras em carbono. O chip da Apple deixa o Apple Watch Series 9 mais inteligente, intuitivo e veloz. Sua CPU de dois núcleos tem 5,6 bilhões de transistores — 60% a mais que no Series 8. E o Neural Engine de quatro núcleos processa tarefas de aprendizado de máquina até duas vezes mais rápido. Tudo isso abre caminho para uma série de inovações, incluindo um novo gesto. Gestos facilitam o uso do Apple Watch em qualquer situação, especialmente quando suas mãos estão ocupadas. Toque o indicador no polegar duas vezes para atender uma ligação, abrir uma notificação, escutar e pausar uma música e muito mais. O sistema avançado da tela do Series 9 leva a intensidade do brilho para até 2000 nits, o dobro do Series 8. Fica mais fácil de ler até sob o sol forte. Ele também é genial quando não precisa aparecer. Em ambientes com pouca luz, como no cinema, o brilho cai para apenas 1 nit.",
+        "estoque": 17
+    },
+    {
+        "id": 3,
+        "nome": "Air Pods Max",
+        "preco": 8590,
+        "descricao": "Reimaginamos completamente os fones de ouvido circum-auriculares. Das almofadas ao arco, os AirPods Max foram pensados para proporcionar um ajuste perfeito, criando uma vedação acústica impecável que leva em consideração diferentes formatos de cabeça. Você vai se sentir dentro do som. Os AirPods Max combinam áudio de alta fidelidade e cancelamento de ruído líder do setor para oferecer uma experiência sonora sem igual. Cada peça do driver exclusivo contribui para uma distorção ultrabaixa em toda a faixa audível. Sejam graves ricos e profundos, médios precisos ou agudos límpidos, você ouve cada nota com um novo nível de clareza.",
+        "estoque": 33
+    },
+    {
+        "id": 4,
+        "nome": "Skate Elétrico Exway Atlas 4WD",
+        "preco": 22990,
+        "descricao": "Esta é uma plataforma excepcional alta performance e com capacidades expansíveis. Pode ser um skate de rua de dupla tração estável ou um skate off-road de quatro rodas extremamente potente. Você pode substituir quase todos os componentes, incluindo o sistema de energia, ESC e bateria, para atender às suas necessidades e realizar todas as suas imaginações! Com autonomia de até 89km e velocidade máxima de 46km/h, o Atlas 4WD te leva em qualquer lugar sem o risco de te deixar na mão.",
+        "estoque": 11
+    },
+    {
+        "id": 5,
+        "nome": "Smartphone iPhone 15 Pro Max 1TB",
+        "preco": 13490,
+        "descricao": "O iPhone 15 Pro é o primeiro iPhone com design em titânio aeroespacial e a mesma liga usada nas espaçonaves das missões em Marte. O titânio tem uma das melhores relações resistência-peso entre todos os metais e, por isso, estes são os modelos Pro mais leves até hoje. Você vai notar a diferença assim que tiver um deles nas mãos. O A17 Pro é uma categoria totalmente nova de chip para iPhone e leva nosso desempenho gráfico a um nível incomparável. Os games para celular ficam mais imersivos, com ambientes incrivelmente detalhados e personagens muito mais realistas. O chip A17 Pro também garante rapidez sem precedentes, com velocidade e eficiência líderes do setor. É uma potência portátil. A câmera grande-angular de 48 MP está mais avançada do que nunca para fotos em altíssima resolução com um novo nível de detalhes e cores. Você vai perceber que os retratos estão melhores do que nunca. E agora nem precisa mais mudar para o modo Retrato. Se o tema da foto for uma pessoa, cachorro ou gato, o iPhone captura automaticamente informações de profundidade. Visualize sua foto como retrato na hora, com um efeito artístico e desfocado, ou deixe para ver depois no app Fotos.",
+        "estoque": 41
+    },
+    {
+        "id": 6,
+        "nome": "Computador Mac Studio M3 Ultra",
+        "preco": 89990,
+        "descricao": "Adorado por criadores profissionais que atuam em diversas áreas, o Mac Studio agora oferece potência de última geração graças ao superveloz M2 Max e ao revolucionário M2 Ultra. Seu design é compacto, mas com espaço de sobra para desempenho absurdo e conectividade expandida. Tudo de que você precisa fica a seu alcance, para você transformar qualquer lugar em um estúdio. Criado com a combinação de dois chips M2 Max, o chip M2 Ultra encara fluxos de trabalho imensos sem pestanejar. Isso significa que você pode transcodificar e exportar vídeos num instante, executar simulações de partículas complexas ou lidar com ambientes 3D gigantescos que antes eram impossíveis de renderizar. E, com o dobro dos recursos para processamento de mídia, o M2 Ultra aceita até 22 streams de vídeo 8K ProRes 422. Nenhum outro computador pessoal faz isso.",
+        "estoque": 5
+    },
+    {
+        "id": 7,
+        "nome": "Óculos de RV Meta Quest 3 128GB",
+        "preco": 8990,
+        "descricao": "Explore novas experiências extraordinárias em realidade mista com nossa Meta Quest mais poderosa até agora. Descubra novos títulos de jogos, fitness, entretenimento e muito mais ou revisite os jogos que você já adora com compatibilidade com versões anteriores. Traga elementos virtuais para o seu espaço físico com interações naturais. Com clareza de som aprimorada e alcance de áudio 40% mais alto que o Quest 2, todos os seus aplicativos favoritos se tornam mais envolventes. Transmita filmes criando o melhor home theater em seu fone de ouvido ou jogue com uma trilha sonora de graves potentes que leva você direto para a ação. Gráficos deslumbrantes. Aprofunde-se com experiências realistas, graças à resolução 4K+ Infinite Display. Você também pode ver mais com um campo de visão aumentado (104° horizontal / 96° vertical) que amplia sua visão periférica em mundos virtuais. Tempos de carregamento mais rápidos. Detalhes mais nítidos. Jogo mais suave. O chip mais poderoso que já colocamos em um headset permite tempos de carregamento mais rápidos e detalhes mais nítidos, esteja você na quadra de um jogo da NBA ou lutando contra bandidos para salvar o universo. Redesenhado para ajudá-lo a encontrar o ajuste perfeito. Descubra a configuração que funciona melhor para você, incluindo opções que permitem usar o fone de ouvido sobre óculos ou acomodar diferentes estilos de cabelo e formatos de rosto. Explore em uma plataforma em que você pode confiar. Explore a VR em uma plataforma confiável, com recursos de privacidade aprimorados que criptografam seus dados e ferramentas de supervisão que mantêm o conteúdo amigável para todos da família.",
+        "estoque": 6
+    },
+    {
+        "id": 8,
+        "nome": "Microfone Shure MV7",
+        "preco": 2790,
+        "descricao": "Encontre o microfone mais adequado para as suas necessidades, enquanto esteja à procura de um microfone vocal, instrumento ou sem fio. Desde 1925, artistas e entusiastas da música de todo o mundo escolheram a Shure para o desempenho incomparável de seus produtos. Ideal para várias atividades. Ele vai oferecer um som de qualidade e você terá a clareza das vozes. Seu dinamismo o torna ideal para vocalistas e instrumentos. É leve e se encaixa em todos os tipos de pés ou suportes. Sem necessidade de fonte de alimentação, ele lhe oferecerá um alto grau de autonomia para usos externos e também internos. Seu padrão polar unidirecional captura sons desde a frente, atenuando todos os ruídos laterais ou traseiros, o que vai permitir efeitos claros e limpos.",
+        "estoque": 9
+    },
+    {
+        "id": 9,
+        "nome": "Webcam PTZ ObsBot Tiny 2",
+        "preco": 3990,
+        "descricao": "Adicione uma webcam poderosa ao seu ambiente remoto, doméstico ou de sala de conferência que pode acompanhá-lo pela sala com a Câmera Webcam PTZ 4K OBSBOT Tiny 2 AI-Powered. A PTZ Webcam OBSBOT Tiny 2 alimentada por IA com Controle de Voz e Gestos e Funções é uma webcam inteligente 4K atualizada que possui controle de software remoto de suas funções de panorâmica, inclinação e zoom, além de permitir gestos manuais para controle e rastreamento automático usando o reconhecimento de assunto integrado. O OBSBOT Tiny 2 AI-Powered PTZ 4K Webcam atualiza seus recursos do Tiny 4K em muitas áreas, incluindo um sensor CMOS 50MP de 1/1.5\" mais poderoso; zoom automático AI atualizado, zona e rastreamento manual com enquadramento automático; suporte PixGain HDR aprimorado, dual-native ISO para desempenho de alta qualidade com pouca luz, transmissão de dados 10x mais rápida por USB-C 3.1 Gen 1, controle dinâmico de gestos e um modo de hibernação aprimorado.",
+        "estoque": 3
+    },
+    {
+        "id": 10,
+        "nome": "Videogame Playstation 5 com 1 Joystick",
+        "preco": 5390,
+        "descricao": "O console PS5™ oferece novas possibilidades de jogabilidade que você nunca imaginou. Reproduza jogos para PS5 e PS4 em Blu-ray Disc. Além disso, você também pode baixar jogos digitais para PS5 e PS4 pela PlayStation Store. Experimente o carregamento extremamente rápido do SSD de ultra-velocidade, uma imersão mais profunda com suporte à resposta tátil, gatilhos adaptáveis e áudio 3D. Além de uma geração totalmente nova de jogos incríveis PlayStation®. Na velocidade da luz: Domine o poder das CPU e GPU personalizadas e do SSD com E/S integradas que redefinem as regras do que o console PlayStation pode fazer. Jogos deslumbrantes: Maravilhe-se com os gráficos incríveis e experimente os recursos do novo PS5. Imersão de tirar o fôlego: Descubra uma experiência de jogos ainda mais profunda com a ajuda da resposta tátil, dos gatilhos adaptáveis e da tecnologia de áudio 3D. O EA SPORTS FC™ 24 traz para você o Jogo de Todo Mundo, a experiência mais autêntica de futebol de todos os tempos com o HyperMotionV*, PlayStyles otimizada pela Opta e um Frostbite™ Engine aprimorado, que reinventa como mais de 19.000 atletas realistas se movimentam, jogam e aparecem em todas as partidas. \r\nMovimentos do futebol. Jogadas do futebol. Jeito do futebol.",
+        "estoque": 31
+    },
+    {
+        "id": 11,
+        "nome": "Smartphone Samsung Galaxy S22 Ultra 1TB",
+        "preco": 7990,
+        "descricao": "Conheça o novo Galaxy S23 Ultra 5G, criado pensando no planeta e equipado com uma S Pen integrada, câmera com Nightography e chip poderoso para jogos extraordinários. Mais inovação, menos emissões. Nosso design simétrico retorna com uma grande diferença: o uso de materiais reciclados e ecologicamente conscientes. Do vidro reaproveitado à cor da armação de metal polido, a beleza é algo natural nesta forma. Energia para quem não tem pausa. Aproveite seu tempo livre com o chip mais poderoso em um smartphone Galaxy. Recursos aprimorados em toda a placa significam que tudo, desde jogos até streaming, é otimizado e contínuo, sem esgotar a bateria.",
+        "estoque": 17
+    },
+    {
+        "id": 12,
+        "nome": "Pad StreamDeck 15 Botões",
+        "preco": 2390,
+        "descricao": "Quebrando Limites. Você está criando conteúdo de qualidade apoiado pela melhor tecnologia. Com o Stream Deck, libere seu gênio criativo e faça transmissões personalizadas no Twitch e no YouTube. Tudo isso enquanto se concentra no que mais importa: seu público. Assuma o Controle Com 15 teclas LCD prontas para iniciar ações ilimitadas e eliminar a necessidade de mapear e memorizar atalhos de teclado. A operação tátil de um toque permite alternar cenas, lançar mídias, ajustar áudio e muito mais, enquanto o feedback visual confirma todos os seus comandos. Tradicionalmente, esse nível de controle era exclusivo das principais emissoras de entretenimento. Agora, está ao seu alcance! Simplifique sua Configuração Elgato Game Capture, OBS, Twitter, TipeeeStream, XSplit, YouTube, Mixer e muito mais - o Stream Deck integra suas ferramentas e detecta automaticamente suas cenas, mídia e fontes de áudio, permitindo que você os controle com um toque rápido de uma tecla. Seja Pro Ativo Alertas automatizados facilitam a vida.",
+        "estoque": 15
+    }
+]

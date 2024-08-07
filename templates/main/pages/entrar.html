@@ -1,0 +1,29 @@
+{% extends "pages/base.html" %}
+{% block subtitulo %}Entrar{% endblock %}
+{% block conteudo %}
+<h1 class="display-5"><b>Entrar</b></h1>
+<hr>
+<form class="row json-form" action="/post_entrar" method="post">
+    <div class="col-12 col-md-6 col-xl-4">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" name="email" placeholder=" ">
+            <label for="email">E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="senha" name="senha" placeholder=" ">
+            <label for="senha">Senha</label>
+        </div>
+        <input type="hidden" name="return_url" value="{{ return_url }}">
+        <div class="mb-3">
+            <button class="btn btn-danger btn-lg" type="submit">Entrar</button>
+        </div>
+        <p class="lead mb-2">
+            <a href="/recuperacaosenha" class="text-decoration-none text-danger">Esqueci minha senha</a>
+        </p>
+        <p class="lead my-0">
+            <a href="/cadastro" class="text-decoration-none text-danger">Ainda não sou cadastrado</a>
+        </p>
+    </div>
+</form>
+<script src="/static/js/formToJson.js"></script>
+{% endblock %}

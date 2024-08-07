@@ -1,0 +1,10 @@
+{% extends "pages/base.html" %}
+{% block subtitulo %}Página Principal{% endblock %}
+{% block topo %}
+{% include "includes/carousel.html" %}
+{% endblock %}
+{% block conteudo %}
+<h1 class="display-5"><b>Produtos em Destaque</b></h1>
+<hr>
+{% include "includes/grid_produtos.html" %}
+{% endblock %}
