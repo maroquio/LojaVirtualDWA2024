@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 def enviar_email(nome_destinatario: str, email_destinatario: str, mensagem: str):
     load_dotenv()
-    mailer = emails.NewEmail(os.getenv('MAILER_SEND_TOKEN'))
+    mailer = emails.NewEmail(os.getenv('MAILERSEND_TOKEN'))
     # define an empty dict to populate with mail values
     mail_body = {}
     mail_from = {
