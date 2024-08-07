@@ -9,3 +9,4 @@ pillow
 bcrypt
 mercadopago
 python-dotenv
+mailersend
