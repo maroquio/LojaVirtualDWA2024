@@ -69,3 +69,28 @@ pip install -r requirements.txt
 ## Execução do Projeto
 
 Para executar o projeto no Visual Studio Code, basta pressionar F5. O Visual Studio Code executará a aplicação localmente na porta 8000. Isso pode ser configurado no arquivo `launch.json` na pasta `.vscode`. Portanto, para acessar a aplicação, basta abrir o navegador e digitar `http://localhost:8000`.
+
+## Criação do Arquivo .env
+
+Para criar o arquivo `.env`, basta copiar o arquivo `.env.example` e renomear para `.env`. O arquivo `.env` deve conter as seguintes variáveis de ambiente:
+
+```bash
+ACCESS_TOKEN_MP_TEST=""
+PUBLIC_KEY_MP_TEST=""
+CLIENT_ID_MP=""
+CLIENT_SECRET_MP=""
+USER_ID_MP_TEST=""
+APPLICATION_ID_MP_TEST=""
+CLIENTE_ID_MP_TEST=""
+CLIENTE_PW_MP_TEST=""
+URL_TEST="http://localhost:8000"
+MAILERSEND_TOKEN=""
+```
+
+## Configuração do MailerSender
+
+Para configurar o MailerSender, siga as instruções no arquivo mailersend.md.
+
+## Configuração do Mercado Pago
+
+Para configurar o Mercado Pago, siga as instruções no arquivo mercadopago.md.
