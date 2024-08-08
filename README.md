@@ -37,23 +37,23 @@ Depois de gerar a chave SSH no sistema operacional e adicionar o conteúdo do ar
 
 ```bash
 [core]
-	repositoryformatversion = 0
-	filemode = false
-	bare = false
-	logallrefupdates = true
-	symlinks = false
-	ignorecase = true
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+    symlinks = false
+    ignorecase = true
     sshCommand = ssh -i ~/.ssh/github-pessoal -F /dev/null
 [remote "origin"]
-	url = https://github.com/SeuUsuarioGit/LojaVirtualDWA2024.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
+    url = https://github.com/SeuUsuarioGit/LojaVirtualDWA2024.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "main"]
-	remote = origin
-	merge = refs/heads/main
-	vscode-merge-base = origin/main
+    remote = origin
+    merge = refs/heads/main
+    vscode-merge-base = origin/main
 [user]
-	email = emailusuariogit@dominio.com
-	name = Fulano de Tal    
+    email = emailusuariogit@dominio.com
+    name = Fulano de Tal
 ```
 
 Isso é necessário para que o Visual Studio Code possa fazer o push e pull sem solicitar a senha do GitHub.
