@@ -89,8 +89,14 @@ MAILERSEND_TOKEN=""
 
 ## Configuração do MailerSender
 
-Para configurar o MailerSender, siga as instruções no arquivo mailersend.md.
+Para configurar o MailerSender, siga as instruções no arquivo [mailersend.md](mailersend.md).
 
 ## Configuração do Mercado Pago
 
-Para configurar o Mercado Pago, siga as instruções no arquivo mercadopago.md.
+Para configurar o Mercado Pago, siga as instruções no arquivo [mercadopago.md](mercadopago.md).
+
+## Referências
+
+- [How To Work With Multiple Github Accounts on a single Machine](https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3)
+- [Git Credential Manager: Multiple Users](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/multiple-users.md)
+- [Integração com Mercado Pago](https://github.com/mercadopago/sdk-python)
