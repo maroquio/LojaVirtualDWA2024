@@ -9,7 +9,15 @@ Para usar este projeto e modificá-lo em sua máquina, siga os passos abaixo:
 1. Faça um fork deste repositório para a sua conta do GitHu;
 2. Clone o repositório para a sua máquina;
 3. Abra o Visual Studio Code e abra a pasta do projeto;
-4. Configure o GitHub para fazer o push e pull sem solicitar a senha. Veja a seção Configuração para GitHub a seguir.
+4. Digite o comando a seguir para configurar o repositório remoto para o seu fork:
+
+```bash
+git remote add origin https://usuariogit@github.com/usuariogit/LojaVirtualDWA2024.git
+git remote set-url origin
+git branch -M main
+```
+
+5. Configure o GitHub para fazer o push e pull sem solicitar a senha. Veja a seção Configuração para GitHub a seguir.
 
 ## Configuração do GitHub
 
