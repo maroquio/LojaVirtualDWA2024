@@ -16,10 +16,10 @@ Para usar este projeto e modificá-lo em sua máquina, siga os passos abaixo:
 Para configurar o Visual Studio Code para fazer o push e pull sem solicitar a senha do GitHub, é necessário gerar uma chave SSH no sistema operacional e adicionar as configurações no arquivo .git/config do repositório. O comando para gerar uma chave SSH é o seguinte:
 
 ```bash
-ssh-keygen -t ed25519 -C "emailusuariogit@dominio.com"
+ssh-keygen -t ed25519 -C "emailusuariogit@dominio.com" -f ~/.ssh/github-pessoal
 ```
 
-O comando acima gera uma chave SSH do tipo ed25519 com o e-mail do usuário do GitHub. O comando solicitará a pasta onde a chave será salva e a senha para proteger a chave. A chave será salva na pasta ~/.ssh com o nome github-pessoal. Agora você deve copiar o conteúdo do arquivo .pub e adicionar no GitHub em Settings > SSH and GPG keys > New SSH key. Para visualizar o conteúdo do arquivo .pub, execute o comando abaixo:
+O comando acima gera uma chave SSH do tipo ed25519 com o e-mail do usuário do GitHub. O comando pode solicitar onde a chave será salva e a qual é a senha para proteger a chave. Neste caso, a chave será salva na pasta ~/.ssh com o nome github-pessoal. Não é necessário fornecer um *passphrase* se solicitado. Agora você deve copiar o conteúdo do arquivo .pub e adicionar no GitHub em Settings > SSH and GPG keys > New SSH key. Para visualizar o conteúdo do arquivo .pub, execute o comando abaixo:
 
 ```bash
 cat ~/.ssh/github-pessoal.pub
@@ -35,6 +35,7 @@ Depois de gerar a chave SSH no sistema operacional e adicionar o conteúdo do ar
 	logallrefupdates = true
 	symlinks = false
 	ignorecase = true
+    sshCommand = ssh -i ~/.ssh/github-pessoal -F /dev/null
 [remote "origin"]
 	url = https://github.com/SeuUsuarioGit/LojaVirtualDWA2024.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
@@ -44,9 +45,7 @@ Depois de gerar a chave SSH no sistema operacional e adicionar o conteúdo do ar
 	vscode-merge-base = origin/main
 [user]
 	email = emailusuariogit@dominio.com
-	name = Fulano de Tal
-[core]	
-    sshCommand = ssh -i ~/.ssh/github-pessoal -F /dev/null
+	name = Fulano de Tal    
 ```
 
 Isso é necessário para que o Visual Studio Code possa fazer o push e pull sem solicitar a senha do GitHub.
