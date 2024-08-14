@@ -1,4 +1,4 @@
-# Loja Virtual de Ricardo Maroquio
+# Loja Virtual de Ricardo Maroquio Alterado
 
 Loja virtual desenvolvida durante a disciplina de Desenvolvimento Web Avançado no Ifes Cachoeiro.
 
