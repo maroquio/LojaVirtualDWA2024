@@ -1,10 +1,10 @@
 {% extends "pages/base.html" %}
-{% block subtitulo %}Confirmação de Pedido{% endblock %}
+{% block subtitulo %}Detalhes do Pedido {{ "{:06d}".format(pedido.id) if pedido }}{% endblock %}
 {% block conteudo %}
 {% if not pedido or not pedido.itens: %}
-<h3>Não há como confirmar o pedido de um carrinho de compras vazio.</h3>
+<h3>Não há como exibir detalhes de um pedido inexistente ou vazio.</h3>
 {% else: %}
-<h1 class="display-5"><b>Confirme os Dados de Seu Pedido</b></h1>
+<h1 class="display-5">Detalhes do Pedido <b>{{ "{:06d}".format(pedido.id) }}</b></h1>
 <hr>
 <div class="row">
     <div class="col-4">
@@ -14,10 +14,12 @@
             {{pedido.endereco_entrega | safe}}
         </p>
         <h2 class="display-6">Valor</h2>
-        <h3 class="text-success">R$ {{pedido.valor_total}}</h3>
-        <a href="/cliente/pagamentopedido/{{pedido.id}}" class="btn btn-danger btn-lg mt-3">
-            <img src="/static/img/iconemercadopago.svg" style="height: 32px">
-            Pagar com Mercado Pago</a>
+        <h3 class="text-success">R$ {{ "{:,.2f}".format(pedido.valor_total) }}</h3>
+        {% if pedido.estado == "pendente": %}
+        <button class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#confirmarCancelamento">Cancelar
+            Pedido</button>
+        {% include "includes/modal_confirmar_cancelar_pedido.html" %}
+        {% endif %}
     </div>
     <div class="col-8">
         <h2 class="display-6">Itens Neste Pedido</h2>
@@ -36,7 +38,8 @@
                 <tr>
                     <td>
                         <a href="/produto/{{i.id_produto}}">
-                            <img src="/static/img/produtos/{{'{:04d}'.format(i.id_produto)}}.jpg" style="height: 48px;" class="rounded img-thumbnail">
+                            <img src="/static/img/produtos/{{'{:04d}'.format(i.id_produto)}}.jpg" style="height: 48px;"
+                                class="rounded img-thumbnail">
                         </a>
                     </td>
                     <td><a href="/produto/{{i.id_produto}}">{{ i.nome_produto }}</a></td>
