@@ -117,9 +117,10 @@ async def get_carrinho(request: Request):
             "Seu carrinho está vazio. Adicione produtos para continuar."
         )
         return response
+    total_pedido = sum([item.valor_item for item in itens_pedido])
     return templates.TemplateResponse(
         "pages/carrinho.html",
-        {"request": request, "itens": itens_pedido},
+        {"request": request, "itens": itens_pedido, "valor_total": total_pedido},
     )
 
 
@@ -275,6 +276,7 @@ async def post_adicionar_carrinho(request: Request, id_produto: int = Form(...))
     else:
         ItemPedidoRepo.aumentar_quantidade_produto(pedido_carrinho.id, id_produto)
         mensagem = f"O produto <b>{produto.nome}</b> já estava no carrinho e teve sua quantidade aumentada."
+    PedidoRepo.atualizar_valor_total(pedido_carrinho.id)
     response = RedirectResponse("/cliente/carrinho", status.HTTP_303_SEE_OTHER)
     adicionar_mensagem_sucesso(response, mensagem)
     return response
@@ -310,6 +312,7 @@ async def post_aumentar_item(request: Request, id_produto: int = Form(0)):
         response,
         f"O produto <b>{produto.nome}</b> teve sua quantidade aumentada para <b>{qtde+1}</b>.",
     )
+    PedidoRepo.atualizar_valor_total(pedido_carrinho.id)
     return response
 
 
@@ -339,9 +342,40 @@ async def post_reduzir_item(request: Request, id_produto: int = Form(0)):
     ItemPedidoRepo.diminuir_quantidade_produto(pedido_carrinho.id, id_produto)
     adicionar_mensagem_sucesso(
         response,
-        f"O produto <b>{produto.nome}</b> teve sua quantidade diminuída para <b>{qtde+1}</b>.",
+        f"O produto <b>{produto.nome}</b> teve sua quantidade diminuída para <b>{qtde-1}</b>.",
     )
+    PedidoRepo.atualizar_valor_total(pedido_carrinho.id)
     return response
+
+@router.post("/post_remover_item", response_class=RedirectResponse)
+async def post_remover_item(request: Request, id_produto: int = Form(0)):
+    if not id_produto:
+        return RedirectResponse("/cliente/carrinho", status.HTTP_304_NOT_MODIFIED)
+    produto = ProdutoRepo.obter_um(id_produto)
+    if not produto:
+        response = RedirectResponse("/cliente/carrinho", status.HTTP_304_NOT_MODIFIED)
+        adicionar_mensagem_alerta(response, "Produto não encontrado.")
+        return response
+    pedidos = PedidoRepo.obter_por_estado(
+        request.state.cliente.id, EstadoPedido.CARRINHO.value
+    )
+    pedido_carrinho = pedidos[0] if pedidos else None
+    response = RedirectResponse("/cliente/carrinho", status.HTTP_303_SEE_OTHER)
+    if pedido_carrinho == None:
+        adicionar_mensagem_alerta(f"Seu carrinho não foi encontrado.")
+        return response
+    qtde = ItemPedidoRepo.obter_quantidade_por_produto(pedido_carrinho.id, id_produto)
+    if qtde == 0:
+        adicionar_mensagem_alerta(
+            f"O produto {id_produto} não foi encontrado em seu carrinho."
+        )
+        return response
+    ItemPedidoRepo.excluir(pedido_carrinho.id, id_produto)
+    response = RedirectResponse("/cliente/carrinho", status.HTTP_303_SEE_OTHER)
+    adicionar_mensagem_sucesso(response, "Item excluído com sucesso.")
+    PedidoRepo.atualizar_valor_total(pedido_carrinho.id)
+    return response
+
 
 
 @router.get("/pedidoconfirmado/{id_pedido:int}", response_class=HTMLResponse)

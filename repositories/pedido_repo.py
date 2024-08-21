@@ -2,6 +2,7 @@ from datetime import datetime
 import sqlite3
 from typing import List, Optional
 from models.pedido_model import Pedido
+from repositories.item_pedido_repo import ItemPedidoRepo
 from sql.pedido_sql import *
 from util.database import obter_conexao
 
@@ -81,6 +82,29 @@ class PedidoRepo:
                     SQL_ATUALIZAR_PARA_FECHAR,
                     (
                         endereco_entrega,
+                        valor_total,
+                        id,
+                    ),
+                )
+                return cursor.rowcount > 0
+        except sqlite3.Error as ex:
+            print(ex)
+            return False
+        
+    @classmethod
+    def atualizar_valor_total(
+        cls, id: int, valor_total: float = 0
+    ) -> bool:
+        if not valor_total:
+            itens = ItemPedidoRepo.obter_por_pedido(id)
+            if itens:
+                valor_total = sum([item.valor_item for item in itens])
+        try:
+            with obter_conexao() as conexao:
+                cursor = conexao.cursor()
+                cursor.execute(
+                    SQL_ATUALIZAR_VALOR_TOTAL,
+                    (
                         valor_total,
                         id,
                     ),

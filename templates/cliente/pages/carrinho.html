@@ -27,7 +27,7 @@
                 </a>
             </td>
             <td><a href="/produto/{{i.id_produto}}">{{ i.nome_produto }}</a></td>
-            <td>{{i.valor_produto}}</td>
+            <td>{{ "{:,.2f}".format(i.valor_produto) }}</td>
             <td>
                 <form action="/cliente/post_reduzir_item" method="post" class="d-inline-block">
                     <input type="hidden" name="id_produto" value="{{i.id_produto}}">
@@ -43,11 +43,14 @@
                     </button>
                 </form>
             </td>
-            <td>{{i.valor_item}}</td>
+            <td>{{ "{:,.2f}".format(i.valor_item) }}</td>
             <td>
-                <button class="btn btn-danger btn-sm">
-                    <i class="bi bi-trash"></i>
-                </button>
+                <form action="/cliente/post_remover_item" method="post" class="d-inline-block">
+                    <input type="hidden" name="id_produto" value="{{i.id_produto}}">
+                    <button class="btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </form>
             </td>
         </tr>
         {% endfor %}
@@ -55,7 +58,7 @@
     <tfoot>
         <tr class="lead">
             <td colspan="4" class="text-end">Valor Total do Pedido:</td>
-            <td><b>R$ 23.992,00</b></td>
+            <td><b>R$ {{ "{:,.2f}".format(valor_total) }}</b></td>
             <td>
                 <a class="btn btn-danger btn-lg" href="/cliente/confirmacaopedido">Finalizar Pedido</a>
             </td>

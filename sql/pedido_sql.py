@@ -32,6 +32,12 @@ SQL_ATUALIZAR_PARA_FECHAR = """
     WHERE id=?
 """
 
+SQL_ATUALIZAR_VALOR_TOTAL = """
+    UPDATE pedido
+    SET valor_total=?
+    WHERE id=?
+"""
+
 SQL_EXCLUIR = """
     DELETE FROM pedido
     WHERE id=?

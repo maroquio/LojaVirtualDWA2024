@@ -1,0 +1,53 @@
+{% extends "pages/base.html" %}
+{% block subtitulo %}Confirmação de Pedido{% endblock %}
+{% block conteudo %}
+{% if not pedido or not pedido.itens: %}
+<h3>Não há como confirmar o pedido de um carrinho de compras vazio.</h3>
+{% else: %}
+<h1 class="display-5"><b>Confirme os Dados de Seu Pedido</b></h1>
+<hr>
+<div class="row">
+    <div class="col-4">
+        <h2 class="display-6">Endereço de Entrega</h2>
+        <p class="lead">
+            <b>Endereço de Entrega</b> <br>
+            {{pedido.endereco_entrega | safe}}
+        </p>
+        <h2 class="display-6">Valor</h2>
+        <h3 class="text-success">R$ {{pedido.valor_total}}</h3>
+        <a href="/cliente/pagamentopedido/{{pedido.id}}" class="btn btn-danger btn-lg mt-3">
+            <img src="/static/img/iconemercadopago.svg" style="height: 32px">
+            Pagar com Mercado Pago</a>
+    </div>
+    <div class="col-8">
+        <h2 class="display-6">Itens Neste Pedido</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>R$ Unit.</th>
+                    <th>Qtde.</th>
+                    <th>R$ Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in pedido.itens %}
+                <tr>
+                    <td>
+                        <a href="/produto/{{i.id_produto}}">
+                            <img src="/static/img/produtos/{{'{:04d}'.format(i.id_produto)}}.jpg" style="height: 48px;" class="rounded img-thumbnail">
+                        </a>
+                    </td>
+                    <td><a href="/produto/{{i.id_produto}}">{{ i.nome_produto }}</a></td>
+                    <td>{{i.valor_produto}}</td>
+                    <td><span class="mx-2">{{i.quantidade}}</span></td>
+                    <td>{{i.valor_item}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
