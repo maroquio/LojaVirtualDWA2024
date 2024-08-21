@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from fastapi import APIRouter, Form, HTTPException, Path, Query, Request, status
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 import mercadopago as mp
@@ -27,10 +27,20 @@ templates = obter_jinja_templates("templates/cliente")
 
 
 @router.get("/pedidos")
-async def get_pedidos(request: Request):
+async def get_pedidos(request: Request, periodo: str = Query("todos")):
+    data_inicial = datetime(1900, 1, 1)
+    data_final = datetime.now()
+    match periodo:
+        case "30":
+            data_inicial = data_final - timedelta(days=30)
+        case "60":
+            data_inicial = data_final - timedelta(days=60)
+        case "90":
+            data_inicial = data_final - timedelta(days=90)
+    pedidos = PedidoRepo.obter_por_periodo(request.state.cliente.id, data_inicial, data_final)
     return templates.TemplateResponse(
         "pages/pedidos.html",
-        {"request": request},
+        {"request": request, "pedidos": pedidos},
     )
 
 

@@ -14,50 +14,19 @@
         </tr>
     </thead>
     <tbody>
+        {% for p in pedidos: %}
         <tr>
-            <td>002465</td>
-            <td>02/05/2024</td>
-            <td>23.992,00</td>
-            <td>Pagamento Confirmado</td>
+            <td>{{ p.id }}</td>
+            <td>{{ p.data_hora }}</td>
+            <td>{{ p.valor_total }}</td>
+            <td>{{ p.estado }}</td>
             <td>
-                <a class="btn btn-danger btn-sm" href="/loja/pedido">
+                <a class="btn btn-danger btn-sm" href="/cliente/detalhespedido/{{ p.id }}">
                     Ver Detalhes
                 </a>
             </td>
         </tr>
-        <tr>
-            <td>002465</td>
-            <td>02/05/2024</td>
-            <td>23.992,00</td>
-            <td>Pagamento Confirmado</td>
-            <td>
-                <a class="btn btn-danger btn-sm" href="/loja/pedido">
-                    Ver Detalhes
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>002465</td>
-            <td>02/05/2024</td>
-            <td>23.992,00</td>
-            <td>Pagamento Confirmado</td>
-            <td>
-                <a class="btn btn-danger btn-sm" href="/loja/pedido">
-                    Ver Detalhes
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>002465</td>
-            <td>02/05/2024</td>
-            <td>23.992,00</td>
-            <td>Pagamento Confirmado</td>
-            <td>
-                <a class="btn btn-danger btn-sm" href="/loja/pedido">
-                    Ver Detalhes
-                </a>
-            </td>
-        </tr>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}
