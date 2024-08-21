@@ -233,10 +233,10 @@ async def get_mp_falha(
     request: Request,
     id_pedido: int = Path(...),
 ):
-    response = RedirectResponse(f"/cliente/resumopedido?id_pedido={id_pedido}")
+    response = RedirectResponse(f"/cliente/detalhespedido/{id_pedido}")
     adicionar_mensagem_erro(
         response,
-        "Houve alguma falha ao processar seu pagamento. Por favor, tente novamente.",
+        "Seu pagamento ainda não foi processado. Você pode tentar realizar o pagamento novamente clicando no botão <b>Pagar com Mercado Pago</b>.",
     )
     return response
 
