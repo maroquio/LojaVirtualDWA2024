@@ -4,7 +4,7 @@ from datetime import date, datetime, timedelta
 from util.validators import *
 
 
-class AlterarClienteDTO(BaseModel):    
+class AlterarUsuarioDTO(BaseModel):    
     nome: str
     cpf: str
     data_nascimento: str

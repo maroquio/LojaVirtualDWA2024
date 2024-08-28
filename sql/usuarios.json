@@ -1,5 +1,17 @@
 [
     {
+        "id": 0,
+        "nome": "Administrador Geral",
+        "cpf": "000.000.000-00",
+        "data_nascimento": "1900-01-01",
+        "endereco": "",
+        "telefone": "(00) 00000-0000",
+        "email": "admin@email.com",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",        
+        "perfil": "0",
+        "token": ""
+    },
+    {
         "id": 1,
         "nome": "João Silva",
         "cpf": "123.456.789-01",
@@ -7,7 +19,8 @@
         "endereco": "Rua A, 123",
         "telefone": "(11) 99999-8888",
         "email": "joao@email.com",
-        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",        
+        "perfil": "1",
         "token": ""
     },
     {
@@ -19,6 +32,7 @@
         "telefone": "(21) 98888-7777",
         "email": "maria@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -30,6 +44,7 @@
         "telefone": "(31) 97777-6666",
         "email": "carlos@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -41,6 +56,7 @@
         "telefone": "(41) 96666-5555",
         "email": "ana@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -52,6 +68,7 @@
         "telefone": "(51) 95555-4444",
         "email": "paulo@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -63,6 +80,7 @@
         "telefone": "(61) 94444-3333",
         "email": "fernanda@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -74,6 +92,7 @@
         "telefone": "(71) 93333-2222",
         "email": "ricardo@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -85,6 +104,7 @@
         "telefone": "(81) 92222-1111",
         "email": "juliana@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -96,6 +116,7 @@
         "telefone": "(91) 91111-0000",
         "email": "marcos@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     },
     {
@@ -107,6 +128,7 @@
         "telefone": "(92) 90000-9999",
         "email": "patricia@email.com",
         "senha": "$2b$12$TJYfq2QCDwstKUtrpx6ZK.wnKS2AXPqhcKGVsffuVetYg1eUTMot2",
+        "perfil": "1",
         "token": ""
     }
 ]

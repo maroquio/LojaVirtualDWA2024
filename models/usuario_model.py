@@ -4,7 +4,7 @@ from typing import Optional
 
 
 @dataclass
-class Cliente:
+class Usuario:
     id: Optional[int] = None
     nome: Optional[str] = None
     cpf: Optional[str] = None
@@ -12,5 +12,6 @@ class Cliente:
     endereco: Optional[str] = None
     telefone: Optional[str] = None
     email: Optional[str] = None
+    perfil: Optional[int] = None
     senha: Optional[str] = None
     token: Optional[str] = None

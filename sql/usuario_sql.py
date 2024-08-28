@@ -1,5 +1,5 @@
 SQL_CRIAR_TABELA = """
-    CREATE TABLE IF NOT EXISTS cliente (
+    CREATE TABLE IF NOT EXISTS usuario (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         cpf TEXT NOT NULL UNIQUE,
@@ -7,75 +7,79 @@ SQL_CRIAR_TABELA = """
         endereco TEXT NOT NULL,
         telefone TEXT NOT NULL UNIQUE,
         email TEXT NOT NULL UNIQUE,
+        perfil INTEGER DEFAULT 1,
         senha TEXT NOT NULL,
         token TEXT)
 """
 
 SQL_INSERIR = """
-    INSERT INTO cliente(nome, cpf, data_nascimento, endereco, telefone, email, senha)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO usuario(nome, cpf, data_nascimento, endereco, telefone, email, senha, perfil)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 """
 
-SQL_OBTER_TODOS = """
+SQL_OBTER_TODOS_POR_PERFIL = """
     SELECT id, nome, cpf, data_nascimento, endereco, telefone, email
-    FROM cliente
+    FROM usuario
+    WHERE perfil=?
     ORDER BY nome
 """
 
 SQL_ALTERAR = """
-    UPDATE cliente
+    UPDATE usuario
     SET nome=?, cpf=?, data_nascimento=?, endereco=?, telefone=?, email=?
     WHERE id=?
 """
 
 SQL_ALTERAR_TOKEN = """
-    UPDATE cliente
+    UPDATE usuario
     SET token=?
     WHERE id=?
 """
 
 SQL_ALTERAR_SENHA = """
-    UPDATE cliente
+    UPDATE usuario
     SET senha=?
     WHERE id=?
 """
 
 SQL_EXCLUIR = """
-    DELETE FROM cliente    
+    DELETE FROM usuario    
     WHERE id=?
 """
 
 SQL_OBTER_POR_ID = """
-    SELECT id, nome, cpf, data_nascimento, endereco, telefone, email
-    FROM cliente
+    SELECT id, nome, cpf, data_nascimento, endereco, telefone, email, perfil
+    FROM usuario
     WHERE id=?
 """
 
 SQL_OBTER_POR_EMAIL = """
-    SELECT id, nome, cpf, data_nascimento, endereco, telefone, email, senha
-    FROM cliente
+    SELECT id, nome, cpf, data_nascimento, endereco, telefone, email, perfil, senha
+    FROM usuario
     WHERE email=?
 """
 
 SQL_OBTER_POR_TOKEN = """
-    SELECT id, nome, cpf, data_nascimento, endereco, telefone, email
-    FROM cliente
+    SELECT id, nome, cpf, data_nascimento, endereco, telefone, email, perfil
+    FROM usuario
     WHERE token=?
 """
 
-SQL_OBTER_QUANTIDADE = """
-    SELECT COUNT(*) FROM cliente
+SQL_OBTER_QUANTIDADE_POR_PERFIL = """
+    SELECT COUNT(*)
+    FROM usuario
+    WHERE perfil=?
 """
 
 SQL_OBTER_BUSCA = """
     SELECT id, nome, cpf, data_nascimento, endereco, telefone, email
-    FROM cliente
+    FROM usuario
     WHERE nome LIKE ? OR cpf LIKE ?
     ORDER BY nome
     LIMIT ? OFFSET ?
 """
 
 SQL_OBTER_QUANTIDADE_BUSCA = """
-    SELECT COUNT(*) FROM cliente
+    SELECT COUNT(*) FROM usuario
     WHERE nome LIKE ? OR cpf LIKE ?
 """
