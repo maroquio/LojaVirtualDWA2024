@@ -28,8 +28,8 @@ class UsuarioRepo:
                         usuario.endereco,
                         usuario.telefone,
                         usuario.email,
-                        usuario.senha,
-                        usuario.perfil
+                        usuario.perfil,
+                        usuario.senha                        
                     ),
                 )
                 if cursor.rowcount > 0:

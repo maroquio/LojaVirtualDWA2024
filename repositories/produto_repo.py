@@ -145,7 +145,7 @@ class ProdutoRepo:
                 produtos = json.load(arquivo)
                 for produto in produtos:
                     ProdutoRepo.inserir(Produto(**produto))
-            cls.transferir_imagens("/static/img/produtos/inserir", "/static/img/produtos")
+            cls.transferir_imagens("static/img/produtos/inserir", "static/img/produtos")
 
     @classmethod
     def transferir_imagens(cls, pasta_origem, pasta_destino):
