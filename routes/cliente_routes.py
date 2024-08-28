@@ -22,7 +22,7 @@ from util.cookies import (
 )
 from util.templates import obter_jinja_templates
 
-router = APIRouter(prefix="/cliente")
+router = APIRouter(prefix="/cliente", include_in_schema=False)
 templates = obter_jinja_templates("templates/cliente")
 
 

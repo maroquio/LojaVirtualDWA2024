@@ -19,7 +19,7 @@ from util.cookies import adicionar_cookie_auth, adicionar_mensagem_sucesso
 from util.pydantic import create_validation_errors
 from util.templates import obter_jinja_templates
 
-router = APIRouter()
+router = APIRouter(include_in_schema=False)
 templates = obter_jinja_templates("templates/main")
 
 
