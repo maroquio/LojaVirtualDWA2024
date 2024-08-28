@@ -4,16 +4,15 @@
 {% if not pedido or not pedido.itens: %}
 <h3>Não há como exibir detalhes de um pedido inexistente ou vazio.</h3>
 {% else: %}
-<h1 class="display-5">Detalhes do Pedido <b>{{ "{:06d}".format(pedido.id) }}</b></h1>
+<h1 class="display-5">Detalhes do Pedido <b>{{ "{:06d}".format(pedido.id) }}</b> ({{pedido.estado}})</h1>
 <hr>
 <div class="row">
-    <div class="col-4">
-        <h2 class="display-6">Endereço de Entrega</h2>
-        <p class="lead">
-            <b>Endereço de Entrega</b> <br>
+    <div class="col-4 pe-4">
+        <h2 class="display-6 fs-2">Endereço de Entrega</h2>
+        <p class="lead">            
             {{pedido.endereco_entrega | safe}}
         </p>
-        <h2 class="display-6">Valor</h2>
+        <h2 class="display-6 fs-2">Valor</h2>
         <h3 class="text-success">R$ {{ "{:,.2f}".format(pedido.valor_total) }}</h3>
         {% if pedido.estado == "pendente": %}
         <button class="btn btn-danger btn-lg w-100 mt-3" data-bs-toggle="modal" data-bs-target="#confirmarCancelamento">
@@ -25,8 +24,8 @@
         {% include "includes/modal_confirmar_cancelar_pedido.html" %}
         {% endif %}
     </div>
-    <div class="col-8">
-        <h2 class="display-6">Itens Neste Pedido</h2>
+    <div class="col-8 ps-4 border-start">
+        <h2 class="display-6 fs-2">Itens Neste Pedido</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -47,9 +46,9 @@
                         </a>
                     </td>
                     <td><a href="/produto/{{i.id_produto}}">{{ i.nome_produto }}</a></td>
-                    <td>{{i.valor_produto}}</td>
+                    <td>{{"{:,.2f}".format(i.valor_produto)}}</td>
                     <td><span class="mx-2">{{i.quantidade}}</span></td>
-                    <td>{{i.valor_item}}</td>
+                    <td>{{"{:,.2f}".format(i.valor_item)}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
