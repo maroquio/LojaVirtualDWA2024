@@ -60,3 +60,15 @@ def gerar_token(length: int = 32) -> str:
         return secrets.token_hex(length)
     except ValueError:
         return ""
+
+
+def configurar_swagger_auth(app):
+    app.openapi_schema = app.openapi()
+    app.openapi_schema["components"]["securitySchemes"] = {
+        "BearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT",
+        }
+    }
+    app.openapi_schema["security"] = [{"BearerAuth": []}]
