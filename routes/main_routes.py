@@ -5,7 +5,7 @@ from fastapi.responses import HTMLResponse, JSONResponse
 
 from dtos.entrar_dto import EntrarDTO
 from util.html import ler_html
-from dtos.novo_usuario_dto import NovoUsuarioDTO
+from dtos.inserir_usuario_dto import InserirUsuarioDTO
 from models.usuario_model import Usuario
 from repositories.usuario_repo import UsuarioRepo
 from repositories.produto_repo import ProdutoRepo
@@ -58,7 +58,7 @@ async def get_cadastro(request: Request):
 
 
 @router.post("/post_cadastro", response_class=JSONResponse)
-async def post_cadastro(cliente_dto: NovoUsuarioDTO):
+async def post_cadastro(cliente_dto: InserirUsuarioDTO):
     cliente_data = cliente_dto.model_dump(exclude={"confirmacao_senha"})
     cliente_data["senha"] = obter_hash_senha(cliente_data["senha"])
     novo_cliente = UsuarioRepo.inserir(Usuario(**cliente_data))

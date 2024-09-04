@@ -3,7 +3,7 @@ from pydantic import BaseModel, field_validator
 from util.validators import *
 
 
-class NovoProdutoDTO(BaseModel):
+class InserirProdutoDTO(BaseModel):
     nome: str
     preco: float    
     descricao: str
