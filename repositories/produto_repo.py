@@ -80,6 +80,7 @@ class ProdutoRepo:
             with obter_conexao() as conexao:
                 cursor = conexao.cursor()
                 tupla = cursor.execute(SQL_OBTER_UM, (id,)).fetchone()
+                if not tupla: return None
                 produto = Produto(*tupla)
                 return produto
         except sqlite3.Error as ex:
