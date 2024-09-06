@@ -95,6 +95,19 @@ Para configurar o MailerSender, siga as instruções no arquivo [mailersend.md](
 
 Para configurar o Mercado Pago, siga as instruções no arquivo [mercadopago.md](mercadopago.md).
 
+# Extensões Úteis para VSCode
+
+ - Bootstrap 5 Quick Snippets
+ - GitLens
+ - HTML CSS Support
+ - IntelliCode
+ - IntelliSense for CSS class names in HTML
+ - Jinha
+ - Python
+ - Reload
+ - SQLite Viewer
+ - vscode-icons
+
 ## Referências
 
 - [How To Work With Multiple Github Accounts on a single Machine](https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3)
