@@ -1,5 +1,4 @@
 import math
-from sqlite3 import DatabaseError
 from fastapi import APIRouter, HTTPException, Query, Request, status
 from fastapi.responses import HTMLResponse, JSONResponse
 

@@ -4,8 +4,8 @@ from repositories.usuario_repo import UsuarioRepo
 from repositories.item_pedido_repo import ItemPedidoRepo
 from repositories.pedido_repo import PedidoRepo
 from repositories.produto_repo import ProdutoRepo
-from routes import main_routes, cliente_routes, admin_routes
-from util.auth_jwt import checar_autorizacao, checar_autenticacao
+from routes import auth_routes, main_routes, cliente_routes, admin_routes
+from util.auth_jwt import checar_autorizacao, checar_autenticacao, configurar_swagger_auth
 from util.exceptions import configurar_excecoes
 
 ProdutoRepo.criar_tabela()
@@ -21,3 +21,5 @@ configurar_excecoes(app)
 app.include_router(main_routes.router)
 app.include_router(cliente_routes.router)
 app.include_router(admin_routes.router)
+app.include_router(auth_routes.router)
+configurar_swagger_auth(app)

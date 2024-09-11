@@ -1,39 +1,48 @@
 import os
 import bcrypt
+from fastapi.responses import JSONResponse
 import jwt
 from datetime import datetime
 from datetime import timedelta
 from fastapi import HTTPException, Request, status
 
 from dtos.usuario_autenticado_dto import UsuarioAutenticadoDto
+from util.cookies import NOME_COOKIE_AUTH, NOME_HEADER_AUTH
 
-NOME_COOKIE_AUTH = "jwt-token"
 
-async def obter_usuario_logado(request: Request) -> dict:
-    try:
-        token = request.cookies[NOME_COOKIE_AUTH]
-        if token.strip() == "":
-            return None
-        dados = validar_token(token)
-        usuario = UsuarioAutenticadoDto(
-            id = dados["id"],
-            nome = dados["nome"], 
-            email = dados["email"], 
-            perfil = dados["perfil"])
-        if "mensagem" in dados.keys():
-            usuario.mensagem = dados["mensagem"]
-        return usuario
-    except KeyError:
+async def obter_usuario_logado(request: Request) -> dict:    
+    token_cookie = request.cookies.get(NOME_COOKIE_AUTH)
+    token_header = request.headers.get(NOME_HEADER_AUTH)
+    # token_cookie = token_cookie.strip() if token_cookie else ""
+    # token_header = token_header.strip() if token_header else ""
+    if not token_cookie and not token_header:
         return None
+    token = token_cookie if token_cookie else token_header.replace("Bearer ", "")
+    dados = validar_token(token)
+    usuario = UsuarioAutenticadoDto(
+        id = dados["id"],
+        nome = dados["nome"], 
+        email = dados["email"], 
+        perfil = dados["perfil"])
+    if "mensagem" in dados.keys():
+        usuario.mensagem = dados["mensagem"]
+    return usuario
     
-
+    
 async def checar_autenticacao(request: Request, call_next):
-    usuario = await obter_usuario_logado(request)
-    request.state.usuario = usuario
-    response = await call_next(request)
-    if response.status_code == status.HTTP_307_TEMPORARY_REDIRECT:
-        return response
-    return response
+    try:
+        usuario = await obter_usuario_logado(request)
+        request.state.usuario = usuario
+        response = await call_next(request)
+        if response.status_code == status.HTTP_307_TEMPORARY_REDIRECT:
+            return response
+        return response    
+    except jwt.ExpiredSignatureError:
+        return JSONResponse({ "message": "Token expirado" })
+    except jwt.InvalidTokenError:
+        return JSONResponse({ "message": "Token inválido" })
+    except Exception as e:
+        return JSONResponse({ "message": f"Erro: {e}" })
 
 
 async def checar_autorizacao(request: Request):
@@ -75,16 +84,9 @@ def criar_token(id: int, nome: str, email: str, perfil: int) -> str:
 
 
 def validar_token(token: str) -> dict:
-    try:
-        return jwt.decode(token, 
-            os.getenv("JWT_SECRET"),
-            os.getenv("JWT_ALGORITHM"))
-    except jwt.ExpiredSignatureError:
-        return { "id": 0, "nome": None, "email": None, "perfil": 0, "mensagem": "Token expirado" }
-    except jwt.InvalidTokenError:
-        return { "id": 0, "nome": None, "email": None, "perfil": 0, "mensagem": "Token inválido" }        
-    except Exception as e:
-        return { "id": 0, "nome": None, "email": None, "perfil": 0, "mensagem": f"Erro: {e}" }
+    return jwt.decode(token, 
+        os.getenv("JWT_SECRET"), 
+        os.getenv("JWT_ALGORITHM"))    
     
 
 def configurar_swagger_auth(app):
