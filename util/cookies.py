@@ -1,4 +1,5 @@
-NOME_COOKIE_AUTH = "auth_token"
+NOME_COOKIE_AUTH = "jwt-token"
+TEMPO_COOKIE_AUTH = 24*3600
 
 
 def adicionar_mensagem_sucesso(response, mensagem):
@@ -45,11 +46,11 @@ def adicionar_mensagem_erro(response, mensagem):
     return response
 
 
-def adicionar_cookie_auth(response, token):
+def adicionar_cookie_auth(response, token, max_age=TEMPO_COOKIE_AUTH):
     response.set_cookie(
         key=NOME_COOKIE_AUTH,
         value=token,
-        max_age=1800,
+        max_age=max_age,
         httponly=True,
         samesite="lax",
     )

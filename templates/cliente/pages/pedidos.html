@@ -3,6 +3,7 @@
 {% block conteudo %}
 <h1 class="display-5"><b>Meus Pedidos</b></h1>
 <hr>
+{% if pedidos: %}
 <table class="table table-striped">
     <thead>
         <tr>
@@ -29,4 +30,7 @@
         {% endfor %}
     </tbody>
 </table>
+{% else: %}
+<h2 class="lead">Não há pedidos em seu histórico.</h2>
+{% endif %}
 {% endblock %}

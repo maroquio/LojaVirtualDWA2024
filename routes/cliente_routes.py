@@ -13,7 +13,7 @@ from repositories.usuario_repo import UsuarioRepo
 from repositories.item_pedido_repo import ItemPedidoRepo
 from repositories.pedido_repo import PedidoRepo
 from repositories.produto_repo import ProdutoRepo
-from util.auth import conferir_senha, obter_hash_senha
+from util.auth_cookie import conferir_senha, obter_hash_senha
 from util.cookies import (
     adicionar_mensagem_alerta,
     adicionar_mensagem_erro,
