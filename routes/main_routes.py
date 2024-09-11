@@ -3,7 +3,7 @@ from sqlite3 import DatabaseError
 from fastapi import APIRouter, HTTPException, Query, Request, status
 from fastapi.responses import HTMLResponse, JSONResponse
 
-from dtos.entrar_dto import EntrarDTO
+from dtos.entrar_dto import EntrarDto
 from util.html import ler_html
 from dtos.inserir_usuario_dto import InserirUsuarioDTO
 from models.usuario_model import Usuario
@@ -91,7 +91,7 @@ async def get_entrar(
 
 
 @router.post("/post_entrar", response_class=JSONResponse)
-async def post_entrar(entrar_dto: EntrarDTO):
+async def post_entrar(entrar_dto: EntrarDto):
     cliente_entrou = UsuarioRepo.obter_por_email(entrar_dto.email)
     if (
         (not cliente_entrou)
