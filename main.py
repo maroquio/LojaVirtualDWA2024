@@ -1,5 +1,6 @@
 from fastapi import Depends, FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from repositories.usuario_repo import UsuarioRepo
 from repositories.item_pedido_repo import ItemPedidoRepo
 from repositories.pedido_repo import PedidoRepo
@@ -15,6 +16,13 @@ UsuarioRepo.inserir_usuarios_json("sql/usuarios.json")
 PedidoRepo.criar_tabela()
 ItemPedidoRepo.criar_tabela()
 app = FastAPI(dependencies=[Depends(checar_autorizacao)])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.mount(path="/static", app=StaticFiles(directory="static"), name="static")
 app.middleware("http")(checar_autenticacao)
 configurar_excecoes(app)

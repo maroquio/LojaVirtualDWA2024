@@ -13,8 +13,6 @@ from util.cookies import NOME_COOKIE_AUTH, NOME_HEADER_AUTH
 async def obter_usuario_logado(request: Request) -> dict:    
     token_cookie = request.cookies.get(NOME_COOKIE_AUTH)
     token_header = request.headers.get(NOME_HEADER_AUTH)
-    # token_cookie = token_cookie.strip() if token_cookie else ""
-    # token_header = token_header.strip() if token_header else ""
     if not token_cookie and not token_header:
         return None
     token = token_cookie if token_cookie else token_header.replace("Bearer ", "")
@@ -48,7 +46,7 @@ async def checar_autenticacao(request: Request, call_next):
 async def checar_autorizacao(request: Request):
     usuario = request.state.usuario if hasattr(request.state, "usuario") else None
     area_do_cliente = request.url.path.startswith("/cliente")
-    area_do_admin = request.url.path.startswith("/admin")
+    area_do_admin = request.url.path.startswith("/admin2")
     if (area_do_cliente or area_do_admin) and not usuario:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
     if (area_do_cliente and usuario.perfil != 1) or (area_do_admin and usuario.perfil != 0):
