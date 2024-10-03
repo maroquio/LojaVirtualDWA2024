@@ -10,3 +10,4 @@ bcrypt
 mercadopago
 python-dotenv
 mailersend
+pyJWT
