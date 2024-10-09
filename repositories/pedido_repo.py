@@ -1,7 +1,7 @@
 from datetime import datetime
 import sqlite3
 from typing import List, Optional
-from models.pedido_model import Pedido
+from models.pedido_model import EstadoPedido, Pedido
 from repositories.item_pedido_repo import ItemPedidoRepo
 from sql.pedido_sql import *
 from util.database import obter_conexao
@@ -55,14 +55,14 @@ class PedidoRepo:
             return False
 
     @classmethod
-    def alterar_estado(cls, id: int, novo_estado: int) -> bool:
+    def alterar_estado(cls, id: int, novo_estado: EstadoPedido) -> bool:
         try:
             with obter_conexao() as conexao:
                 cursor = conexao.cursor()
                 cursor.execute(
                     SQL_ALTERAR_ESTADO,
                     (
-                        novo_estado,
+                        novo_estado.value,
                         id,
                     ),
                 )
