@@ -136,18 +136,10 @@ async def get_confirmacaopedido(request: Request):
     if not itens_pedido:
         return RedirectResponse("/cliente/carrinho", status.HTTP_303_SEE_OTHER)
     valor_total = sum([item.valor_produto * item.quantidade for item in itens_pedido])
+    usuario = UsuarioRepo.obter_por_id(request.state.usuario.id)
     PedidoRepo.atualizar_para_fechar(
-        pedido_carrinho.id, request.state.usuario.endereco, valor_total
+        pedido_carrinho.id, usuario.endereco, valor_total
     )
-    # pedido_carrinho = PedidoRepo.obter_por_id(pedido_carrinho.id)
-    # pedido_carrinho.endereco_entrega = pedido_carrinho.endereco_entrega.replace(
-    #     "\n", "<br>"
-    # )
-    # pedido_carrinho.itens = itens_pedido
-    # return templates.TemplateResponse(
-    #     "pages/confirmacaopedido.html",
-    #     {"request": request, "pedido": pedido_carrinho},
-    # )
     return RedirectResponse(f"/cliente/detalhespedido/{pedido_carrinho.id}")
 
 
@@ -260,12 +252,13 @@ async def post_adicionar_carrinho(request: Request, id_produto: int = Form(...))
         request.state.usuario.id, EstadoPedido.CARRINHO.value
     )
     pedido_carrinho = pedidos[0] if pedidos else None
+    usuario = UsuarioRepo.obter_por_id(request.state.usuario.id)
     if pedido_carrinho == None:
         pedido_carrinho = Pedido(
             0,  # id
             datetime.now(),
             0,  # valor_total
-            request.state.usuario.endereco,
+            usuario.endereco,
             EstadoPedido.CARRINHO.value,
             request.state.usuario.id,
         )
