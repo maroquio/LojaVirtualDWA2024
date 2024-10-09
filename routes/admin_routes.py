@@ -54,6 +54,30 @@ async def alterar_pedido(inputDto: AlterarPedidoDto):
     pd = ProblemDetailsDto("int", f"O pedido com id <b>{inputDto.id}</b> não foi encontrado.", "value_not_found", ["body", "id"])
     return JSONResponse(pd.to_dict(), status_code=404)
 
+@router.post("/cancelar_pedido/{id_pedido}", status_code=204)
+async def cancelar_pedido(id_pedido: int = Path(..., title="Id do Pedido", ge=1)):
+    if PedidoRepo.alterar_estado(id_pedido, EstadoPedido.CANCELADO): return None
+    pd = ProblemDetailsDto("int", f"O pedido com id <b>{id_pedido}</b> não foi encontrado.", "value_not_found", ["body", "id"])
+    return JSONResponse(pd.to_dict(), status_code=404)
+
+@router.post("/evoluir_pedido/{id_pedido}", status_code=204)
+async def cancelar_pedido(id_pedido: int = Path(..., title="Id do Pedido", ge=1)):
+    pedido = PedidoRepo.obter_por_id(id_pedido)
+    if not pedido:
+        pd = ProblemDetailsDto("int", f"O pedido com id <b>{id_pedido}</b> não foi encontrado.", "value_not_found", ["body", "id"])
+        return JSONResponse(pd.to_dict(), status_code=404)
+    estado_atual = pedido.estado
+    estados = [e.value for e in list(EstadoPedido) if e != EstadoPedido.CANCELADO]
+    indice = estados.index(estado_atual)
+    indice += 1
+    if indice < len(estados):
+        novo_estado = estados[indice]
+        if PedidoRepo.alterar_estado(id_pedido, novo_estado): 
+            return None
+    pd = ProblemDetailsDto("int", f"O pedido com id <b>{id_pedido}</b> não pode ter seu estado evoluído para <b>cancelado</b>.", "state_change_invalid", ["body", "id"])
+    return JSONResponse(pd.to_dict(), status_code=404)
+    
+
 @router.get("/obter_pedido/{id_pedido}")
 async def obter_pedido(id_pedido: int = Path(..., title="Id do Pedido", ge=1)):
     pedido = PedidoRepo.obter_por_id(id_pedido)
