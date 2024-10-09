@@ -55,14 +55,14 @@ class PedidoRepo:
             return False
 
     @classmethod
-    def alterar_estado(cls, id: int, novo_estado: EstadoPedido) -> bool:
+    def alterar_estado(cls, id: int, novo_estado: str) -> bool:
         try:
             with obter_conexao() as conexao:
                 cursor = conexao.cursor()
                 cursor.execute(
                     SQL_ALTERAR_ESTADO,
                     (
-                        novo_estado.value,
+                        novo_estado,
                         id,
                     ),
                 )
