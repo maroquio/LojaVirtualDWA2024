@@ -1,4 +1,6 @@
-# Loja Virtual de Ricardo Maroquio Alterado
+# Loja Virtual
+
+(22 de outubro de 2024)
 
 Loja virtual desenvolvida durante a disciplina de Desenvolvimento Web Avançado no Ifes Cachoeiro.
 
