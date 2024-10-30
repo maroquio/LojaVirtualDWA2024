@@ -3,6 +3,9 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 
+from models.item_pedido_model import ItemPedido
+from models.usuario_model import Usuario
+
 
 class EstadoPedido(Enum):
     CARRINHO = "carrinho"
@@ -23,3 +26,6 @@ class Pedido:
     endereco_entrega: Optional[str] = None
     estado: Optional[EstadoPedido] = None
     id_cliente: Optional[int] = None
+    cliente: Optional[Usuario] = None
+    itens: Optional[list[ItemPedido]] = None
+
