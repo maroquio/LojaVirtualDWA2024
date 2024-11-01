@@ -38,6 +38,7 @@ async def excluir_produto(inputDto: IdProdutoDto):
 
 @router.get("/obter_produto/{id_produto}")
 async def obter_produto(id_produto: int = Path(..., title="Id do Produto", ge=1)):
+    await asyncio.sleep(1)
     produto = ProdutoRepo.obter_um(id_produto)
     if produto: return produto
     pd = ProblemDetailsDto("int", f"O produto com id <b>{id_produto}</b> não foi encontrado.", "value_not_found", ["body", "id_produto"])

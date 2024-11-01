@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, validator
 
 from util.validators import *
 
@@ -35,8 +35,9 @@ class AlterarProdutoDto(BaseModel):
         if msg: raise ValueError(msg)
         return v
 
-    @field_validator("estoque")
+    @field_validator("estoque", mode="before")
     def validar_estoque(cls, v):
-        msg = is_in_range(v, "Estoque", 0, 1000)
+        msg = is_not_empty(v, "Estoque")
+        msg = msg or is_in_range(v, "Estoque", 0, 9999)
         if msg: raise ValueError(msg)
         return v
