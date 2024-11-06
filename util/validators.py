@@ -9,6 +9,7 @@ def is_in_range(
     low: int | float,
     high: int | float
 ) -> str:
+    field_value = float(field_value)
     if low <= field_value <= high:
         return ""
     else:
@@ -27,6 +28,22 @@ def is_not_empty(field_value: str, field_label: str) -> str:
         return ""
     else:
         return f"O valor do campo <b>{field_label}</b> não pode ser vazio."
+
+
+def is_integer(field_value: str, field_label: str) -> str:
+    try:
+        int(field_value)
+        return ""
+    except ValueError:
+        return f"O valor do campo <b>{field_label}</b> deve ser um número inteiro."
+
+
+def is_float(field_value: str, field_label: str) -> str:
+    try:
+        float(field_value)
+        return ""
+    except ValueError:
+        return f"O valor do campo <b>{field_label}</b> deve ser um número decimal válido."
 
 
 def is_size_between(

@@ -24,7 +24,8 @@ class AlterarProdutoDto(BaseModel):
 
     @field_validator("preco")
     def validar_preco(cls, v):
-        msg = is_in_range(v, "Preço", 0.0, 100000.0)
+        msg = is_float(v, "Preço")
+        msg = msg or is_in_range(v, "Preço", 0.0, 100000.0)
         if msg: raise ValueError(msg)
         return v
 
@@ -37,7 +38,7 @@ class AlterarProdutoDto(BaseModel):
 
     @field_validator("estoque", mode="before")
     def validar_estoque(cls, v):
-        msg = is_not_empty(v, "Estoque")
+        msg = is_integer(v, "Estoque")
         msg = msg or is_in_range(v, "Estoque", 0, 9999)
         if msg: raise ValueError(msg)
         return v
