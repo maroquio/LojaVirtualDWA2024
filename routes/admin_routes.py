@@ -1,11 +1,10 @@
 import asyncio
 from typing import List
-from fastapi import APIRouter, Body, Form, Path
+from fastapi import APIRouter, Form, Path
 from fastapi.responses import JSONResponse
 
 from dtos.alterar_pedido_dto import AlterarPedidoDto
 from dtos.alterar_produto_dto import AlterarProdutoDto
-from dtos.id_produto_dto import IdProdutoDto
 from dtos.inserir_produto_dto import InserirProdutoDto
 from dtos.problem_details_dto import ProblemDetailsDto
 from models.pedido_model import EstadoPedido
