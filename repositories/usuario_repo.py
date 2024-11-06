@@ -50,6 +50,18 @@ class UsuarioRepo:
         except sqlite3.Error as ex:
             print(ex)
             return None
+        
+    @classmethod
+    def obter_todos(cls) -> List[Usuario]:
+        try:
+            with obter_conexao() as conexao:
+                cursor = conexao.cursor()
+                tuplas = cursor.execute(SQL_OBTER_TODOS).fetchall()
+                usuarios = [Usuario(*t) for t in tuplas]
+                return usuarios
+        except sqlite3.Error as ex:
+            print(ex)
+            return None
 
     @classmethod
     def alterar(cls, usuario: Usuario) -> bool:

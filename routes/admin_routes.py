@@ -1,4 +1,5 @@
 import asyncio
+from typing import List
 from fastapi import APIRouter, Path
 from fastapi.responses import JSONResponse
 
@@ -9,6 +10,7 @@ from dtos.inserir_produto_dto import InserirProdutoDto
 from dtos.problem_details_dto import ProblemDetailsDto
 from models.pedido_model import EstadoPedido
 from models.produto_model import Produto
+from models.usuario_model import Usuario
 from repositories.item_pedido_repo import ItemPedidoRepo
 from repositories.pedido_repo import PedidoRepo
 from repositories.produto_repo import ProdutoRepo
@@ -31,9 +33,9 @@ async def inserir_produto(inputDto: InserirProdutoDto) -> Produto:
     return novo_produto
 
 @router.post("/excluir_produto", status_code=204)
-async def excluir_produto(inputDto: IdProdutoDto):
-    if ProdutoRepo.excluir(inputDto.id_produto): return None
-    pd = ProblemDetailsDto("int", f"O produto com id <b>{inputDto.id_produto}</b> não foi encontrado.", "value_not_found", ["body", "id_produto"])
+async def excluir_produto(id_produto):
+    if ProdutoRepo.excluir(id_produto): return None
+    pd = ProblemDetailsDto("int", f"O produto com id <b>{id_produto}</b> não foi encontrado.", "value_not_found", ["body", "id_produto"])
     return JSONResponse(pd.to_dict(), status_code=404)
 
 @router.get("/obter_produto/{id_produto}")
@@ -101,3 +103,15 @@ async def obter_pedidos_por_estado(estado: EstadoPedido = Path(..., title="Estad
     await asyncio.sleep(1)
     pedidos = PedidoRepo.obter_todos_por_estado(estado.value)
     return pedidos
+
+@router.get("/obter_usuarios")
+async def obter_usuarios() -> List[Usuario]:
+    await asyncio.sleep(1)
+    usuarios = UsuarioRepo.obter_todos()    
+    return usuarios
+
+@router.post("/excluir_usuario", status_code=204)
+async def excluir_usuario(id_usuario):
+    if UsuarioRepo.excluir(id_usuario): return None
+    pd = ProblemDetailsDto("int", f"O usuario com id <b>{id_usuario}</b> não foi encontrado.", "value_not_found", ["body", "id_produto"])
+    return JSONResponse(pd.to_dict(), status_code=404)
