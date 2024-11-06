@@ -38,7 +38,7 @@ async def inserir_produto(inputDto: InserirProdutoDto) -> Produto:
 
 
 @router.post("/excluir_produto", status_code=204)
-async def excluir_produto(id_produto: int = Form(...)):
+async def excluir_produto(id_produto: int = Form(..., title="Id do Produto", ge=1)):
     await asyncio.sleep(SLEEP_TIME)
     if ProdutoRepo.excluir(id_produto):
         return None
