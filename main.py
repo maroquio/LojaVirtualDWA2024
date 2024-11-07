@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from fastapi import Depends, FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -6,9 +7,14 @@ from repositories.item_pedido_repo import ItemPedidoRepo
 from repositories.pedido_repo import PedidoRepo
 from repositories.produto_repo import ProdutoRepo
 from routes import auth_routes, main_routes, cliente_routes, admin_routes
-from util.auth_jwt import checar_autorizacao, checar_autenticacao, configurar_swagger_auth
+from util.auth_jwt import (
+    checar_autorizacao,
+    checar_autenticacao,
+    configurar_swagger_auth,
+)
 from util.exceptions import configurar_excecoes
 
+load_dotenv()
 ProdutoRepo.criar_tabela()
 ProdutoRepo.inserir_produtos_json("sql/produtos.json")
 UsuarioRepo.criar_tabela()
