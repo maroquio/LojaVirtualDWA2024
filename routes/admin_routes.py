@@ -1,7 +1,9 @@
 import asyncio
-from typing import List
-from fastapi import APIRouter, Form, Path
+from io import BytesIO
+from typing import List, Optional
+from fastapi import APIRouter, File, Form, Path, UploadFile
 from fastapi.responses import JSONResponse
+from PIL import Image
 
 from dtos.alterar_pedido_dto import AlterarPedidoDto
 from dtos.alterar_produto_dto import AlterarProdutoDto
@@ -14,6 +16,7 @@ from repositories.item_pedido_repo import ItemPedidoRepo
 from repositories.pedido_repo import PedidoRepo
 from repositories.produto_repo import ProdutoRepo
 from repositories.usuario_repo import UsuarioRepo
+from util.images import transformar_em_quadrada
 
 SLEEP_TIME = 0.2
 router = APIRouter(prefix="/admin")
@@ -27,12 +30,37 @@ async def obter_produtos():
 
 
 @router.post("/inserir_produto", status_code=201)
-async def inserir_produto(inputDto: InserirProdutoDto) -> Produto:
+async def inserir_produto(
+    nome: str = Form(...),
+    preco: float = Form(...),
+    descricao: str = Form(...),
+    estoque: int = Form(...),
+    imagem: Optional[UploadFile] = File(None)
+):    
+    produto_dto = InserirProdutoDto(
+        nome=nome,
+        preco=preco,
+        descricao=descricao,
+        estoque=estoque
+    )
+    conteudo_arquivo = await imagem.read()
+    imagem = Image.open(BytesIO(conteudo_arquivo))
+    if not imagem:
+        pd = ProblemDetailsDto(
+            "imagem",
+            "O arquivo enviado não é uma imagem válida.",
+            "invalid_file",
+            ["body", "imagem"],
+        )
+        return JSONResponse(pd.to_dict(), status_code=422)
     await asyncio.sleep(SLEEP_TIME)
     novo_produto = Produto(
-        None, inputDto.nome, inputDto.preco, inputDto.descricao, inputDto.estoque
+        None, produto_dto.nome, produto_dto.preco, produto_dto.descricao, produto_dto.estoque
     )
     novo_produto = ProdutoRepo.inserir(novo_produto)
+    if novo_produto:
+        imagem_quadrada = transformar_em_quadrada(imagem)
+        imagem_quadrada.save(f"static/img/produtos/{novo_produto.id:04d}.jpg", "JPEG")
     return novo_produto
 
 
