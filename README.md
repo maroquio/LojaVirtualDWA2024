@@ -1,6 +1,9 @@
 # Loja Virtual
+<<<<<<< HEAD
 
 (22 de outubro de 2024)
+=======
+>>>>>>> aae658d356c8ba08adc33219f8cb390ce4cb0981
 
 Loja virtual desenvolvida durante a disciplina de Desenvolvimento Web Avançado no Ifes Cachoeiro.
 
